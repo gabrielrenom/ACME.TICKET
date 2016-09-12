@@ -11,6 +11,8 @@ using System.IO;
 using ACME.Business.Common;
 using ACME.Business.Services;
 using System.Configuration;
+using Ninject;
+using ACME.Handler.Ninject;
 
 namespace ACME.Handler
 {
@@ -18,6 +20,10 @@ namespace ACME.Handler
     {
         public static void Main(string[] args)
         {
+            // Adding Dependency injection           
+            //KernelBase kernel = new StandardKernel(new NinjectWEBModule());
+            //IAvailableService ticketService = kernel.Get<AvailableDbService>();
+
             Console.WriteLine("+------------------------------------+");
             Console.WriteLine("|--ACME Ticket Availability Handler--|");
             Console.WriteLine("+------------------------------------+");
