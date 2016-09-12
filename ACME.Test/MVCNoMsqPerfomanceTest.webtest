@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="WebTest1" Id="d2852240-89cd-4ddc-8fc5-2511b14fecdc" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.68b837e3-8f9f-4414-ab97-bcda3f88180d.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="774499d9-199b-4dc7-a561-d3996e19212f" Version="1.1" Url="http://localhost/mvcnomsq/ticket/create" ThinkTime="37" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+    </Request>
+    <Request Method="POST" Guid="6ae79b1e-4e5a-4e9f-8313-bc9b667fca6b" Version="1.1" Url="http://localhost/mvcnomsq/ticket/create" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost/mvcnomsq/ticket/create" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="E8UXPXW4uuLURdpqo1tdej_veqiSA-Zp1_G8_DWyBlf7G2avveC6eUBkbfJc2y12HoHImcijzr6p_gURvemw3-K1SrqH7mVVsjjXd9D6aKA1" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FirstName" Value="Gabriel" RecordedValue="Gabriel" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="LastName" Value="Renom" RecordedValue="Renom" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Date" Value="1/1/2016" RecordedValue="1/1/2016" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Address" Value="16 Battersbay Grove" RecordedValue="16 Battersbay Grove" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="CCName" Value="G RENOM" RecordedValue="G RENOM" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="CCNumber" Value="1234-1234-1234-1234" RecordedValue="1234-1234-1234-1234" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+  </Items>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response URL" Description="Validates that the response URL after redirects are followed is the same as the recorded response URL.  QueryString parameters are ignored." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response Time Goal" Description="Validates that the response time for the request is less than or equal to the response time goal as specified on the request.  Response time goals of zero will be ignored." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>
