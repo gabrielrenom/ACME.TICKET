@@ -1,4 +1,5 @@
 ﻿using ACME.Common.Interfaces;
+using ACME.Common.Managers;
 using ACME.Common.Models;
 using ACME.Data;
 using Newtonsoft.Json;
@@ -14,7 +15,16 @@ namespace ACME.Business.Services
 {
     public class TicketQueueService : ITicketService
     {
-        public string Address { get; set; }            
+        //This is for demo purposes only, it shouldn't be here...
+        private ITicketManager ticketManager;
+
+        public string Address { get; set; }
+
+        //This constructor is for demo purposes only, it shouldn't be here...
+        public TicketQueueService(ITicketManager ticketmanager)
+        {
+            ticketManager = ticketmanager;
+        }
 
         public async Task AddAsync(TicketModel ticket)
         {
@@ -28,8 +38,9 @@ namespace ACME.Business.Services
         }
 
         public async Task<IEnumerable<TicketModel>> GetAll()
-        {
-            throw new NotImplementedException();
+        {   
+            //This is for demo purposes only, it shouldn't be here...         
+            return await ticketManager.GetAllAsync();
         }
 
         public async Task<TicketModel> GetById(int id)

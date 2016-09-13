@@ -33,7 +33,7 @@ namespace ACME.Business.Services
 
         public async Task<IEnumerable<TicketModel>> GetAll()
         {
-            throw new NotImplementedException();
+            return await ticketManager.GetAllAsync();
         }
 
         public async Task<TicketModel> GetById(int id)

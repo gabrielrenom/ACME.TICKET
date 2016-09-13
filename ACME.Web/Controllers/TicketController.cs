@@ -59,7 +59,7 @@ namespace ACME.Web.Controllers
                 else
                     return View("TicketNotAvailable");
             }
-            catch
+            catch (Exception ex)
             {
                 return View("Error");
             }

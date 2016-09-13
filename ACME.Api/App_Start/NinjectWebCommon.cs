@@ -17,7 +17,9 @@ namespace ACME.Api.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-
+    using Common.Interfaces;
+    using Business.Services;
+    using Business.Common;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -68,6 +70,21 @@ namespace ACME.Api.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind(x => x.FromAssembliesMatching(
+                "ACME.Data.*",
+                "ACME.DataAccess.*",
+                "ACME.Common.*",
+                "ACME.Business.*")
+                        .SelectAllClasses()
+                        .BindDefaultInterface());
+
+            //Console.WriteLine("Mode NOMSQ..."); 
+            //kernel.Bind<ITicketService>().To<TicketDbService>();
+            //kernel.Bind<IAvailableService>().To<AvailableDbService>();
+
+            Console.WriteLine("Mode MSQ...");
+            kernel.Bind<ITicketService>().To<TicketQueueService>();
+            kernel.Bind<IAvailableService>().To<AvailableInQueueService>();
         }        
     }
 }
