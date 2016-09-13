@@ -21,8 +21,8 @@ namespace ACME.Handler
         public static void Main(string[] args)
         {
             // Adding Dependency injection           
-            //KernelBase kernel = new StandardKernel(new NinjectWEBModule());
-            //IAvailableService ticketService = kernel.Get<AvailableDbService>();
+            KernelBase kernel = new StandardKernel(new NinjectWEBModule());
+            IAvailableService available = kernel.Get<AvailableDbService>();
 
             Console.WriteLine("+------------------------------------+");
             Console.WriteLine("|--ACME Ticket Availability Handler--|");
@@ -34,7 +34,7 @@ namespace ACME.Handler
             // If queue doesn't exits it is created
             if (!MessageQueue.Exists(messagequeueAddress)) MessageQueue.Create(messagequeueAddress);
 
-            IAvailableService available = new AvailableDbService();
+            //IAvailableService available = new AvailableDbService();
 
             // Processing the date
             using (var queue = new MessageQueue(messagequeueAddress))

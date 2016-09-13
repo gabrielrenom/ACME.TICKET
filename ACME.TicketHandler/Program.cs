@@ -56,9 +56,10 @@ namespace ACME.TicketHandler
                     if (messageType == typeof(TicketModel))
                     {
                         // Adding the ticket...
+                        ((TicketModel)messageBody).QueueId = new Guid(message.Id.Split('\\')[0]);
                         ticketService.Add((TicketModel)messageBody);
                     }
-                    Console.WriteLine("[Ticket Added:: Id:{0}, Last Name:{1}, Date:{2}]", ((TicketModel)messageBody).Id, ((TicketModel)messageBody).LastName, ((TicketModel)messageBody).Date);
+                    Console.WriteLine("[Ticket Added:: MessageId:{0}, Last Name:{1}, Date:{2}]", ((TicketModel)messageBody).QueueId, ((TicketModel)messageBody).LastName, ((TicketModel)messageBody).Date);
                 }
             }
         }

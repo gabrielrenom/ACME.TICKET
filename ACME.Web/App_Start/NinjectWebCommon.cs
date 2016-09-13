@@ -72,13 +72,16 @@ namespace ACME.Web.App_Start
                  "ACME.Common.*",
                  "ACME.Business.*")
                          .SelectAllClasses()
-                         .BindDefaultInterface());
+                         .BindDefaultInterface());         
 
-            kernel.Bind<ITicketService>().To<TicketDbService>();
-            kernel.Bind<IAvailableService>().To<AvailableDbService>();
+            //Console.WriteLine("Mode NOMSQ..."); 
+            //kernel.Bind<ITicketService>().To<TicketDbService>();
+            //kernel.Bind<IAvailableService>().To<AvailableDbService>();
 
-            //kernel.Bind<ITicketService>().To<TicketQueueService>();
-            //kernel.Bind<IAvailableService>().To<AvailableInQueueService>();
+            Console.WriteLine("Mode MSQ...");
+            kernel.Bind<ITicketService>().To<TicketQueueService>();
+            kernel.Bind<IAvailableService>().To<AvailableInQueueService>();
+
         }
     }
 }
